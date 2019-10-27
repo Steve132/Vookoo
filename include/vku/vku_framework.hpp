@@ -523,7 +523,9 @@ public:
     for (auto &f : commandBufferFences_) {
       device_.destroyFence(f);
     }
+
     swapchain_ = vk::UniqueSwapchainKHR{};
+    instance_.destroySurfaceKHR(surface_);
   }
 
   Window &operator=(Window &&rhs) = default;
